@@ -1,0 +1,33 @@
+[project]
+name = "hangdoctor"
+version = "0.1.0"
+description = "Finds out why Windows freezes and stutters, explains it in plain words and fixes what can be fixed"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "vasmarfas" }]
+requires-python = ">=3.10"
+dependencies = ["textual>=1.0"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: Microsoft :: Windows :: Windows 10",
+    "Operating System :: Microsoft :: Windows :: Windows 11",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Monitoring",
+]
+
+[project.urls]
+Homepage = "https://github.com/vasmarfas/hangdoctor"
+Issues = "https://github.com/vasmarfas/hangdoctor/issues"
+
+[project.scripts]
+hangdoctor = "hangdoctor.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hangdoctor"]
+
+[dependency-groups]
+dev = ["pytest>=8", "pyinstaller>=6"]
